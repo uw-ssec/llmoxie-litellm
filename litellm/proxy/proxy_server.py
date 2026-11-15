@@ -823,6 +823,7 @@ from litellm.proxy.middleware.per_request_root_path_middleware import (
     get_server_root_paths,
 )
 from litellm.proxy.middleware.prometheus_auth_middleware import PrometheusAuthMiddleware
+from litellm.proxy.middleware.public_redirect_middleware import PublicRedirectMiddleware
 from litellm.proxy.middleware.request_size_limit_middleware import (
     RequestSizeLimitMiddleware,
 )
@@ -2741,6 +2742,7 @@ app.add_middleware(RedisRequestBatchMiddleware)
 app.add_middleware(LensInternalMiddleware)
 app.add_middleware(InFlightRequestsMiddleware)
 app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(PublicRedirectMiddleware)
 app.add_middleware(GZipBufferedResponseMiddleware)
 
 
